@@ -9,8 +9,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">apellido</th>
+                                <th scope="col">nombre</th>
+                                <th scope="col">apellidos</th>
                                 <th scope="col">dni</th>
                             </tr>
                         </thead>
@@ -59,7 +59,7 @@ export default defineComponent({
                     // console.log(doc.id);
                     this.ficha1.push({
                         nombre: doc.data().nombre,
-                        apelllidos: doc.data().apelllidos,
+                        apellidos: doc.data().apellidos,
                         dni: doc.data().dni,
                         id: doc.id,
                         // ...doc.data()

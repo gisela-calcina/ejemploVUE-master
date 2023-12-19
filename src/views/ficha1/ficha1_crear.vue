@@ -3,8 +3,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h1>FICHA DE DATOS DE JUGADOR</h1>
-                    <h2>C.B BOSCOS HUESA</h2>
+                    <h1 class="text-center">FICHA DE DATOS DE JUGADOR</h1>
+                    <h2 class="text-center">C.B BOSCOS HUESA</h2>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="mb-3">
@@ -149,19 +149,10 @@ export default defineComponent({
         }
     },
     methods: {
-        async getUrls() {
-            try {
-                const q = doc(db, "ficha1", this.id);
-                const respuesta = await getDoc(q);
-                this.curso = respuesta.data()
-            } catch (error) {
-                console.log(error);
-            }
-        },
         async guardar() {
             try {
-                const q = doc(db, 'ficha1', this.id);
-                const docRef = await updateDoc(q, this.ficha1);
+                const q = query(collection(db, 'ficha1'));
+                const docRef = await addDoc(q, this.ficha1);
                 this.$router.push({ name: 'ficha1_listar' })
             } catch (error) {
                 console.log(error);
@@ -169,7 +160,6 @@ export default defineComponent({
         },
     },
     created() {
-        this.getUrls()
     }
 })
 </script>
